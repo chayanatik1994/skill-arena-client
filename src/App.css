@@ -3,7 +3,15 @@
 
 /* Tailwind directives */
 @import "tailwindcss";
- @plugin "daisyui";
+ @plugin "daisyui" {
+    themes: light --default;
+ };
+ @plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  --color-primary: blue;
+  --color-secondary: teal;
+}
 
 
 /* Body styles */

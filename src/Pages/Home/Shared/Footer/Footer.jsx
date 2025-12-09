@@ -1,12 +1,13 @@
 import React from 'react';
 import { FaFacebook, FaLinkedin, FaGithub, FaYoutube, FaTwitter, FaInstagram } from 'react-icons/fa';
+import footerImg from '../../../../assets/skill arena-horizontal.png';
 
 const Footer = () => {
   return (
     <footer className="bg-gray-100 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 text-gray-700 dark:text-gray-300">
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-        
-        {/* Top Section: Links and Connect */}
+
+        {/* Top Section: Links */}
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
           
           {/* 1. Platform Links */}
@@ -59,39 +60,33 @@ const Footer = () => {
               <li><a href="/contact" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Contact Us</a></li>
             </ul>
           </div>
-          
 
-   <div className="md:col-span-1 flex flex-col items-start md:items-end">
-       <h3 className="text-base  text-black dark:text-indigo-400 mb-4">
-        Connect with SkillArena via Social Apps
-       </h3>
-        <div className="flex space-x-4">
-         <a href="#" className="text-blue-600 hover:text-blue-800 transition-colors" aria-label="Facebook">
-      <FaFacebook className="w-6 h-6" />
-        </a>
-       <a href="#" className="text-blue-500 hover:text-blue-700 transition-colors" aria-label="LinkedIn">
-        <FaLinkedin className="w-6 h-6" />
-      </a>
-       <a href="#" className="text-gray-800 hover:text-gray-900 transition-colors" aria-label="GitHub">
-      <FaGithub className="w-6 h-6" />
-      </a>
-         <a href="#" className="text-blue-400 hover:text-blue-600 transition-colors" aria-label="Twitter">
-        <FaTwitter className="w-6 h-6" />
-    </a>
-       <a href="#" className="text-pink-500 hover:text-pink-700 transition-colors" aria-label="Instagram">
-      <FaInstagram className="w-6 h-6" />
-       </a>
-      <a href="#" className="text-red-600 hover:text-red-800 transition-colors" aria-label="YouTube">
-      <FaYoutube className="w-6 h-6" />
-    </a>
-  </div>
-     </div>
+          {/* Social Section */}
+          <div className="md:col-span-1 flex flex-col items-start md:items-end">
+            <div className="flex items-center mb-4">
+              {/* Rounded Logo */}
+              <img 
+                src={footerImg} 
+                alt="SkillArena Logo" 
+                className="h-10 w-10 rounded-full object-cover mr-3"
+              />
+              <span className="text-sm text-black dark:text-indigo-400">Connect with SkillArena via Social Apps</span>
+            </div>
+
+            <div className="flex space-x-4">
+              <a href="#" className="text-blue-600 hover:text-blue-800 transition-colors" aria-label="Facebook"><FaFacebook className="w-6 h-6" /></a>
+              <a href="#" className="text-blue-500 hover:text-blue-700 transition-colors" aria-label="LinkedIn"><FaLinkedin className="w-6 h-6" /></a>
+              <a href="#" className="text-gray-800 hover:text-gray-900 transition-colors" aria-label="GitHub"><FaGithub className="w-6 h-6" /></a>
+              <a href="#" className="text-blue-400 hover:text-blue-600 transition-colors" aria-label="Twitter"><FaTwitter className="w-6 h-6" /></a>
+              <a href="#" className="text-pink-500 hover:text-pink-700 transition-colors" aria-label="Instagram"><FaInstagram className="w-6 h-6" /></a>
+              <a href="#" className="text-red-600 hover:text-red-800 transition-colors" aria-label="YouTube"><FaYoutube className="w-6 h-6" /></a>
+            </div>
+          </div>
+
         </div>
-        
-        {/* Bottom Section: Legal and Copyright */}
+
+        {/* Bottom Section */}
         <div className="mt-10 pt-8 border-t border-gray-300 dark:border-gray-700 flex flex-wrap justify-between items-center text-sm">
-          
-          {/* Legal Links */}
           <div className="flex space-x-4 mb-4 md:mb-0">
             <a href="/imprint" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Imprint/Legal</a>
             <a href="/privacy" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Privacy</a>
@@ -99,11 +94,8 @@ const Footer = () => {
             <a href="/sitemap" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Site Map</a>
             <a href="/cookies" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Cookie Preferences</a>
           </div>
-
-          {/* Copyright */}
           <p>&copy; 2025 SkillArena. All rights reserved.</p>
         </div>
-        
       </div>
     </footer>
   );
