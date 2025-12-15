@@ -18,14 +18,14 @@ const PageNotFound = () => {
       </h1>
 
       {/* Subtext */}
-      <p className="text-gray-600 text-sm sm:text-base mb-6">
+      <p className="text-black text-sm sm:text-base mb-6">
         Oops! The page you are looking for does not exist.
       </p>
 
       {/* Button */}
       <button
         onClick={() => (window.location.href = '/')}
-        className="px-6 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-all shadow-md"
+        className="px-6 py-3 bg-teal-600 text-white rounded-lg"
       >
         Go Back Home
       </button>
