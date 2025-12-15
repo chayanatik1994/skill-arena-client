@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router';
+import { FaSignInAlt, FaSignOutAlt } from 'react-icons/fa';
 import Logo from '../../../../components/logo/logo';
 import useAuth from '../../../../hooks/useAuth';
 
@@ -28,26 +29,12 @@ const Navbar = () => {
           <div className="flex items-center gap-3">
             <div className="dropdown lg:hidden">
               <label tabIndex={0} className="btn btn-ghost btn-sm">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
               </label>
 
-              <ul
-                tabIndex={0}
-                className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-white rounded-box w-52"
-              >
+              <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-white rounded-box w-52">
                 <li><NavLink to="/" className={linkClass}>Home</NavLink></li>
                 <li><NavLink to="/contests" className={linkClass}>All Contests</NavLink></li>
                 <li><NavLink to="/extra" className={linkClass}>Extra Section</NavLink></li>
@@ -72,12 +59,17 @@ const Navbar = () => {
               user ? (
                 <button
                   onClick={handleLogout}
-                  className="btn btn-outline btn-sm px-6"
+                  className="flex items-center gap-2 h-10 px-4 rounded-md bg-teal-700 text-white text-sm hover:bg-gray-800 transition"
                 >
+                  <FaSignOutAlt className="w-4 h-4" />
                   Log Out
                 </button>
               ) : (
-                <Link to="/login" className="btn btn-secondary btn-sm px-6">
+                <Link
+                  to="/login"
+                  className="flex items-center gap-2 h-10 px-4 rounded-md bg-teal-600 text-white text-sm hover:bg-teal-700 transition"
+                >
+                  <FaSignInAlt className="w-4 h-4" />
                   Login
                 </Link>
               )

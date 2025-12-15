@@ -30,12 +30,13 @@ export const router = createBrowserRouter([
         path: "register",
         Component: Register,
       },
-      {
+     
+    ],
+  },
+   {
         path: "forgot-password",
         Component: ForgotPassword
       },
-    ],
-  },
   {
     path: "*", 
     Component: PageNotFound,
