@@ -1,104 +1,119 @@
 import React from 'react';
-import { FaFacebook, FaLinkedin, FaGithub, FaYoutube, FaTwitter, FaInstagram } from 'react-icons/fa';
+import {
+  FaFacebook,
+  FaLinkedin,
+  FaGithub,
+  FaYoutube,
+  FaTwitter,
+  FaInstagram,
+} from 'react-icons/fa';
 import footerImg from '../../../../assets/skill arena-horizontal.png';
 
 const Footer = () => {
   return (
     <footer className="bg-gray-100 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 text-gray-700 dark:text-gray-300">
-      <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
-        {/* Top Section: Links */}
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
-          
-          {/* 1. Platform Links */}
+        {/* Top Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
+
+          {/* Platform */}
           <div>
-            <h4 className="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider mb-3">
-              Platform
-            </h4>
-            <ul className="space-y-3">
-              <li><a href="/" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Home</a></li>
-              <li><a href="/all-contests" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">All Contests</a></li>
-              <li><a href="/leaderboard" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Leaderboard</a></li>
-              <li><a href="/faq" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">FAQs</a></li>
+            <h4 className="footer-title">Platform</h4>
+            <ul className="footer-links">
+              <li><a href="/">Home</a></li>
+              <li><a href="/all-contests">All Contests</a></li>
+              <li><a href="/leaderboard">Leaderboard</a></li>
+              <li><a href="/faq">FAQs</a></li>
             </ul>
           </div>
 
-          {/* 2. Contest Categories */}
+          {/* Contest Skills */}
           <div>
-            <h4 className="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider mb-3">
-              Contest Skills
-            </h4>
-            <ul className="space-y-3">
-              <li><a href="/category/writing" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Writing</a></li>
-              <li><a href="/category/coding" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Coding & Technical</a></li>
-              <li><a href="/category/design" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Design</a></li>
-              <li><a href="/category/gaming" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Gaming</a></li>
-              <li><a href="/category/achievement" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Achievement</a></li>
+            <h4 className="footer-title">Contest Skills</h4>
+            <ul className="footer-links">
+              <li><a href="/category/writing">Writing</a></li>
+              <li><a href="/category/coding">Coding & Technical</a></li>
+              <li><a href="/category/design">Design</a></li>
+              <li><a href="/category/gaming">Gaming</a></li>
+              <li><a href="/category/achievement">Achievement</a></li>
             </ul>
           </div>
 
-          {/* 3. About & Community */}
+          {/* About */}
           <div>
-            <h4 className="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider mb-3">
-              About & Community
-            </h4>
-            <ul className="space-y-3">
-              <li><a href="/about" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">About Us</a></li>
-              <li><a href="/creators" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">For Creators</a></li>
-              <li><a href="/careers" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Careers</a></li>
-              <li><a href="/blog" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Blog</a></li>
-              <li><a href="/support" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Support</a></li>
+            <h4 className="footer-title">About & Community</h4>
+            <ul className="footer-links">
+              <li><a href="/about">About Us</a></li>
+              <li><a href="/creators">For Creators</a></li>
+              <li><a href="/careers">Careers</a></li>
+              <li><a href="/blog">Blog</a></li>
+              <li><a href="/support">Support</a></li>
             </ul>
           </div>
 
-          {/* 4. Contact */}
-          <div className="col-span-2 md:col-span-1">
-            <h4 className="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider mb-3">
-              Contact
-            </h4>
-            <ul className="space-y-3">
-              <li><a href="/contact" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Contact Us</a></li>
+          {/* Contact */}
+          <div>
+            <h4 className="footer-title">Contact</h4>
+            <ul className="footer-links">
+              <li><a href="/contact">Contact Us</a></li>
             </ul>
           </div>
 
-          {/* Social Section */}
-          <div className="md:col-span-1 flex flex-col items-start md:items-end">
-            <div className="flex items-center mb-4">
-              {/* Rounded Logo */}
-              <img 
-                src={footerImg} 
-                alt="SkillArena Logo" 
-                className="h-10 w-10 rounded-full object-cover mr-3"
+          {/* Brand + Social */}
+          <div className="flex flex-col gap-4">
+            <div className="flex items-center gap-3">
+              <img
+                src={footerImg}
+                alt="SkillArena"
+                className="h-10 w-10 rounded-full object-cover"
               />
-              <span className="text-sm text-black dark:text-indigo-400">Connect with SkillArena via Social Apps</span>
+              <span className="text-sm font-medium text-gray-900 dark:text-gray-100">
+                SkillArena
+              </span>
             </div>
 
-            <div className="flex space-x-4">
-              <a href="#" className="text-blue-600 hover:text-blue-800 transition-colors" aria-label="Facebook"><FaFacebook className="w-6 h-6" /></a>
-              <a href="#" className="text-blue-500 hover:text-blue-700 transition-colors" aria-label="LinkedIn"><FaLinkedin className="w-6 h-6" /></a>
-              <a href="#" className="text-gray-800 hover:text-gray-900 transition-colors" aria-label="GitHub"><FaGithub className="w-6 h-6" /></a>
-              <a href="#" className="text-blue-400 hover:text-blue-600 transition-colors" aria-label="Twitter"><FaTwitter className="w-6 h-6" /></a>
-              <a href="#" className="text-pink-500 hover:text-pink-700 transition-colors" aria-label="Instagram"><FaInstagram className="w-6 h-6" /></a>
-              <a href="#" className="text-red-600 hover:text-red-800 transition-colors" aria-label="YouTube"><FaYoutube className="w-6 h-6" /></a>
+            <p className="text-sm text-gray-600 dark:text-gray-400">
+              Connect with us on social platforms
+            </p>
+
+            <div className="flex gap-4">
+              <SocialIcon href="#" label="Facebook"><FaFacebook /></SocialIcon>
+              <SocialIcon href="#" label="LinkedIn"><FaLinkedin /></SocialIcon>
+              <SocialIcon href="#" label="GitHub"><FaGithub /></SocialIcon>
+              <SocialIcon href="#" label="Twitter"><FaTwitter /></SocialIcon>
+              <SocialIcon href="#" label="Instagram"><FaInstagram /></SocialIcon>
+              <SocialIcon href="#" label="YouTube"><FaYoutube /></SocialIcon>
             </div>
           </div>
-
         </div>
 
-        {/* Bottom Section */}
-        <div className="mt-10 pt-8 border-t border-gray-300 dark:border-gray-700 flex flex-wrap justify-between items-center text-sm">
-          <div className="flex space-x-4 mb-4 md:mb-0">
-            <a href="/imprint" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Imprint/Legal</a>
-            <a href="/privacy" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Privacy</a>
-            <a href="/security" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Security</a>
-            <a href="/sitemap" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Site Map</a>
-            <a href="/cookies" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Cookie Preferences</a>
+        {/* Bottom */}
+        <div className="mt-10 pt-6 border-t border-gray-300 dark:border-gray-700 flex flex-col md:flex-row gap-4 justify-between items-center text-sm">
+          <div className="flex flex-wrap gap-4">
+            <a href="/imprint">Imprint</a>
+            <a href="/privacy">Privacy</a>
+            <a href="/security">Security</a>
+            <a href="/sitemap">Site Map</a>
+            <a href="/cookies">Cookies</a>
           </div>
-          <p>&copy; 2025 SkillArena. All rights reserved.</p>
+          <p className="text-gray-500 dark:text-gray-400">
+            © 2025 SkillArena. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
   );
 };
+
+const SocialIcon = ({ href, label, children }) => (
+  <a
+    href={href}
+    aria-label={label}
+    className="text-gray-500 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors text-xl"
+  >
+    {children}
+  </a>
+);
 
 export default Footer;

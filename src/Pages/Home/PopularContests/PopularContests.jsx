@@ -3,10 +3,9 @@ import React, { useState, useEffect } from 'react';
 const PopularContests = () => {
   const [contests, setContests] = useState([]);
 
-  // Simulate fetching data from backend
   useEffect(() => {
     const fetchContests = async () => {
-      // Placeholder data; later replace this with an API call
+
       const data = [
         { id: 1, name: "Photography Contest", image: "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp", description: "Capture the beauty of nature in your photos." },
         { id: 2, name: "Art Challenge", image: "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp", description: "Show off your artistic skills in this month-long challenge." },
