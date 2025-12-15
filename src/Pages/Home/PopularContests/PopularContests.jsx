@@ -1,24 +1,37 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
+import useAuth from "../../../hooks/useAuth";
+
 
 const PopularContests = () => {
   const [contests, setContests] = useState([]);
   const navigate = useNavigate();
+  const { user } = useAuth(); 
 
   useEffect(() => {
     const fetchContests = async () => {
       const data = [
-        { id: 1, name: "Photography Contest", image: "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp", description: "Capture the beauty of nature in your photos." },
-        { id: 2, name: "Art Challenge", image: "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp", description: "Show off your artistic skills in this month-long challenge." },
-        { id: 3, name: "Writing Contest", image: "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp", description: "Write a compelling short story based on the given theme." },
-        { id: 4, name: "Coding Competition", image: "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp", description: "Solve challenging problems and showcase your coding skills." },
-        { id: 5, name: "Gaming Tournament", image: "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp", description: "Compete with gamers around the world for the top spot." },
+        { id: 1, name: "Photography Contest", image: "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp", description: "Capture the beauty of nature in your photos.", participants: 25 },
+        { id: 2, name: "Art Challenge", image: "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp", description: "Show off your artistic skills in this month-long challenge.", participants: 18 },
+        { id: 3, name: "Writing Contest", image: "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp", description: "Write a compelling short story based on the given theme.", participants: 30 },
+        { id: 4, name: "Coding Competition", image: "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp", description: "Solve challenging problems and showcase your coding skills.", participants: 22 },
+        { id: 5, name: "Gaming Tournament", image: "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp", description: "Compete with gamers around the world for the top spot.", participants: 35 },
       ];
+      data.sort((a, b) => b.participants - a.participants);
+
       setContests(data);
     };
 
     fetchContests();
   }, []);
+
+  const handleDetailsClick = (id) => {
+    if (user) {
+      navigate(`/contests/${id}`);
+    } else {
+      navigate("/login");
+    }
+  };
 
   return (
     <div className="p-4">
@@ -32,11 +45,12 @@ const PopularContests = () => {
             </figure>
             <div className="card-body">
               <h3 className="card-title">{contest.name}</h3>
-              <p>{contest.description.slice(0, 80)}…</p>
-              <div className="card-actions mt-2">
+              <p className="text-gray-700">{contest.description.slice(0, 80)}…</p>
+              <p className="text-sm text-gray-500">{contest.participants} Participants</p>
+              <div className="card-actions mt-2 justify-end">
                 <button
                   className="btn btn-secondary btn-sm"
-                 onClick={() => navigate(`/contests/${contest.id}`)}
+                  onClick={() => handleDetailsClick(contest.id)}
                 >
                   Details
                 </button>
@@ -49,7 +63,7 @@ const PopularContests = () => {
       <div className="mt-4 text-center">
         <button
           className="btn btn-secondary px-10 py-2"
-          onClick={() => navigate("/contests:/id")}
+          onClick={() => navigate("/contests")}
         >
           Show All
         </button>
