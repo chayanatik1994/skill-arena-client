@@ -11,6 +11,7 @@ import PageNotFound from "../Pages/PageNotFound/PageNotFound";
 import PrivateRoute from "./PrivateRoute";
 import AllContests from "../Pages/AllContests/AllContests";
 import ContestDetailsPage from "../Pages/ContestDetailsPage";
+import HowSkillArenaWorks from "../Pages/HowSkillArenaWorks";
 
 export const router = createBrowserRouter([
   {
@@ -18,6 +19,7 @@ export const router = createBrowserRouter([
     Component: RootLayout,
     children: [
       { index: true, Component: Home },
+      { path: "extra", Component: HowSkillArenaWorks },
       {
         path: "contests",
         element: (

@@ -61,11 +61,10 @@ const ForgotPassword = () => {
                       ? 'border-red-500 focus:ring-red-500'
                       : 'border-gray-300 focus:ring-teal-700'
                   }`}
-                  placeholder="you@example.com"
+                  placeholder="Put Your Email Address"
                 />
               </div>
 
-              {/* Red error line */}
               {errors.email && (
                 <div className="mt-2 flex items-center gap-1 text-xs text-red-600 border-l-4 border-red-500 pl-2">
                   <FiAlertCircle />
@@ -74,7 +73,6 @@ const ForgotPassword = () => {
               )}
             </div>
 
-            {/* Global messages */}
             {error && (
               <div className="flex items-center gap-2 text-sm text-red-600 border-l-4 border-red-500 pl-3">
                 <FiAlertCircle />

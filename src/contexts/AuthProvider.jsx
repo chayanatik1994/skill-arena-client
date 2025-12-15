@@ -43,25 +43,25 @@ const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, currentUser => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setLoading(false);
     });
     return () => unsubscribe();
   }, []);
 
-  const authInfo = {
-    user,
-    loading,
-    registerUser,
-    signInUser,
-    signInGoogle,
-    logOut,
-    updateUserProfile
-  };
-
   return (
-    <AuthContext.Provider value={authInfo}>
+    <AuthContext.Provider
+      value={{
+        user,
+        loading,
+        registerUser,
+        signInUser,
+        signInGoogle,
+        logOut,
+        updateUserProfile
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );
