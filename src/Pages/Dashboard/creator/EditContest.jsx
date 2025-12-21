@@ -36,7 +36,7 @@ const EditContest = () => {
     },
     onError: (err) => {
       console.error(err);
-      Swal.fire('Error', 'Failed to update contest', 'error');
+      Swal.fire('Error', 'Failed the update contest', 'error');
     },
   });
 
