@@ -33,7 +33,7 @@ const MyCreatedContests = () => {
     },
     onError: (err) => {
       console.error(err);
-      Swal.fire('Error', 'Failed to delete contest', 'error');
+      Swal.fire('Error', 'Failed the delete contest', 'error');
     },
   });
 
