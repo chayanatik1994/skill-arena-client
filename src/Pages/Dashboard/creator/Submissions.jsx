@@ -52,7 +52,7 @@ const Submissions = () => {
       queryClient.invalidateQueries(['contests']);
       queryClient.invalidateQueries(['leaderboard']);
       queryClient.invalidateQueries(['winners']);
-      Swal.fire('Winner Declared!', 'The winner has been successfully declared!', 'success');
+      Swal.fire('Winner Declared!', 'The winners has been successfully declared!', 'success');
     },
     onError: (err) => {
       console.error(err);
