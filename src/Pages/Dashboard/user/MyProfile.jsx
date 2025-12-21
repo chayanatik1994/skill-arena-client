@@ -17,7 +17,7 @@ const MyProfile = () => {
   const [loading, setLoading] = useState(false);
   const [winStats, setWinStats] = useState({ participated: 0, won: 0 });
 
-  // Fetch win statistics
+  // Fetch win statisti
   useEffect(() => {
     const fetchStats = async () => {
     if (!user?._id) return;
