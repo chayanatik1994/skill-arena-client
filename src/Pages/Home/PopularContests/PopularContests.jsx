@@ -47,7 +47,7 @@ const PopularContests = () => {
               <h3 className="card-title">{contest.name}</h3>
               <p className="text-gray-700 line-clamp-3">{contest.description}</p>
               <p className="text-sm text-gray-500">{contest.participants?.length || 0} Participants</p>
-              <div className="card-actions mt-2 justify-end">
+              <div className="card-actions mt-3 justify-end">
                 <button
                   className="btn btn-secondary btn-sm"
                   onClick={() => handleDetailsClick(contest._id)}
