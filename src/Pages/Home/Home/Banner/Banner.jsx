@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router";
 import bannerImg from "../../../../assets/BannerImage.jpg";
 
 const Banner = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const navigate = useNavigate();
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (searchTerm.trim()) {
+      navigate(`/contests?search=${encodeURIComponent(searchTerm.trim())}`);
+    } else {
+      navigate('/contests');
+    }
+  };
+
   return (
     <div
       className="relative w-full h-[70vh] rounded-xl overflow-hidden"
@@ -25,16 +38,18 @@ const Banner = () => {
         </p>
 
         {/* Search Bar */}
-        <div className="bg-white w-full max-w-xl p-3 rounded-xl shadow-lg flex items-center gap-3">
+        <form onSubmit={handleSearch} className="bg-white w-full max-w-xl p-3 rounded-xl shadow-lg flex items-center gap-3">
           <input
             type="text"
-            placeholder="Search contest type..."
+            placeholder="Search contest type (e.g., Image Design, Article Writing)..."
             className="w-full outline-none"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
           />
-          <button className="btn btn-secondary text-white px-4 py-2 rounded-lg">
+          <button type="submit" className="btn btn-secondary text-white px-4 py-2 rounded-lg">
             Search
           </button>
-        </div>
+        </form>
       </div>
     </div>
   );

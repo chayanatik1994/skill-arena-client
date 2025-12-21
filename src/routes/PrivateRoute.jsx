@@ -1,22 +1,21 @@
 import React from 'react';
-import { Navigate, useLocation } from 'react-router';
+import { Navigate } from 'react-router';
 import useAuth from '../hooks/useAuth';
 
-const PrivateRoute = ({ children }) => {
+const PrivateRoute = ({ children, role }) => {
   const { user, loading } = useAuth();
-  const location = useLocation();
 
+  // Wait for auth redirecting
   if (loading) {
     return (
-      <div className="flex justify-center items-center h-screen">
-        <span className="loading loading-ring loading-md"></span>
+      <div className="flex items-center justify-center min-h-screen">
+        <span className="loading loading-spinner loading-lg"></span>
       </div>
     );
   }
 
-  if (!user) {
-    return <Navigate to="/login" state={{ from: location }} replace />;
-  }
+  if (!user) return <Navigate to="/auth/login" replace />;
+  if (role && user.role !== role) return <Navigate to="/dashboard" replace />;
 
   return children;
 };
