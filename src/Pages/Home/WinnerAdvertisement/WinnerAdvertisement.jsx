@@ -14,7 +14,11 @@ const WinnerAdvertisement = () => {
       const res = await axios.get("http://localhost:3000/winners");
       return res.data || [];
     },
+<<<<<<< HEAD
     refetchInterval: 30000, 
+=======
+    refetchInterval: 30000, // Refetch every 30 seconds to get latest winners
+>>>>>>> 5b1652f (Update project files with Stripe integration and fixes)
   });
 
   if (isLoading) {

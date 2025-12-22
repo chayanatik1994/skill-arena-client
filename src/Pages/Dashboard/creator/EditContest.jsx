@@ -36,7 +36,11 @@ const EditContest = () => {
     },
     onError: (err) => {
       console.error(err);
+<<<<<<< HEAD
       Swal.fire('Error', 'Failed the update contest', 'error');
+=======
+      Swal.fire('Error', 'Failed to update contest', 'error');
+>>>>>>> 5b1652f (Update project files with Stripe integration and fixes)
     },
   });
 

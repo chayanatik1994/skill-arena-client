@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
+<<<<<<< HEAD
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
 
+=======
+import Swal from 'sweetalert2';
+import useAxiosSecure from '../../../hooks/useAxiosSecure';
+>>>>>>> 5b1652f (Update project files with Stripe integration and fixes)
 const AdminSelectWinner = ({ contest }) => {
   const axiosSecure = useAxiosSecure();
   const queryClient = useQueryClient();
@@ -17,7 +22,11 @@ const AdminSelectWinner = ({ contest }) => {
     },
   });
 
+<<<<<<< HEAD
   // Get participants for this contest (filter out admin users)
+=======
+  // Get participants 
+>>>>>>> 5b1652f (Update project files with Stripe integration and fixes)
   const participants = React.useMemo(() => {
     if (!contest?.participants || !allUsers.length) return [];
     
@@ -26,7 +35,11 @@ const AdminSelectWinner = ({ contest }) => {
         const user = allUsers.find(u => u._id === participantId);
         return user;
       })
+<<<<<<< HEAD
       .filter(user => user && user.role !== 'admin') // Filter out admin users
+=======
+      .filter(user => user && user.role !== 'admin') 
+>>>>>>> 5b1652f (Update project files with Stripe integration and fixes)
       .filter(Boolean);
   }, [contest?.participants, allUsers]);
 
@@ -119,4 +132,8 @@ const AdminSelectWinner = ({ contest }) => {
   );
 };
 
+<<<<<<< HEAD
 export default AdminSelectWinner;
+=======
+export default AdminSelectWinner;
+>>>>>>> 5b1652f (Update project files with Stripe integration and fixes)

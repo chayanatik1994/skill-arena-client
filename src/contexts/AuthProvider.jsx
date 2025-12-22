@@ -19,15 +19,23 @@ const AuthProvider = ({ children }) => {
    const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
+<<<<<<< HEAD
   //Firebase user with backend MongoDB and get JWT token
   const syncUserWithBackend = async (firebaseUser) => {
     if (!firebaseUser) {
       setUser(null);
        localStorage.removeItem('jwt_token');
+=======
+  const syncUserWithBackend = async (firebaseUser) => {
+    if (!firebaseUser) {
+      setUser(null);
+      localStorage.removeItem('jwt_token');
+>>>>>>> 5b1652f (Update project files with Stripe integration and fixes)
       return;
     }
 
     try {
+<<<<<<< HEAD
       // user exists in backend
       const userResponse = await axios.get(`${API_URL}/users`);
        const existingUser = userResponse.data.find(u => u.email === firebaseUser.email);
@@ -50,10 +58,33 @@ const AuthProvider = ({ children }) => {
           newUser.photoURL = defaultAvatar;
         }
           const createResponse = await axios.post(`${API_URL}/users`, newUser);
+=======
+      const { email, displayName, photoURL } = firebaseUser;
+
+      // Check backend
+      const userResponse = await axios.get(`${API_URL}/users`);
+      let backendUser = userResponse.data.find(u => u.email === email);
+
+      if (!backendUser) {
+        // Create new user if not exists
+        const defaultAvatar = "https://i.ibb.co/hRNkzFqh/smiling-redhaired-boy-illustrati.png";
+        const newUser = {
+          email,
+          name: displayName || email.split('@')[0],
+          photoURL: photoURL || defaultAvatar,
+          role: 'user',
+          bio: ''
+        };
+        if (!newUser.photoURL || newUser.photoURL.trim() === '') {
+          newUser.photoURL = defaultAvatar;
+        }
+        const createResponse = await axios.post(`${API_URL}/users`, newUser);
+>>>>>>> 5b1652f (Update project files with Stripe integration and fixes)
         backendUser = createResponse.data;
       }
 
       // Get JWT token from backend
+<<<<<<< HEAD
       try {
         const tokenResponse = await axios.post(`${API_URL}/auth/jwt`, {
           email: firebaseUser.email
@@ -70,6 +101,18 @@ const AuthProvider = ({ children }) => {
         console.error('Error syncing user:', error);
       // Fallback to Firebase user only
       setUser(firebaseUser);
+=======
+      const tokenResponse = await axios.post(`${API_URL}/auth/jwt`, { email });
+      const { token } = tokenResponse.data;
+      localStorage.setItem('jwt_token', token);
+
+      // Merge backend + Firebase data (backend role takes priority)
+      setUser({ ...firebaseUser, ...backendUser });
+
+    } catch (error) {
+      console.error('Error syncing user:', error);
+      setUser(firebaseUser); // fallback
+>>>>>>> 5b1652f (Update project files with Stripe integration and fixes)
     }
   };
 
@@ -108,6 +151,7 @@ const AuthProvider = ({ children }) => {
       }
       setLoading(false);
     });
+
     return () => unsubscribe();
   }, []);
 

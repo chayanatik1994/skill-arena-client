@@ -12,6 +12,7 @@ const AllContests = () => {
 
   // Categories
   const categories = [
+
      'All',
   'Web Development',
   'Graphic Design',
@@ -19,6 +20,14 @@ const AllContests = () => {
   'Video Editing',
   'Photography',
   'Other'
+
+    'All',
+    'Content Writing',
+    'Web Development',
+    'Photography',
+    'Video Editing',
+    'Other'
+
   ];
 
   // Fetch contests using TanStack Query with search

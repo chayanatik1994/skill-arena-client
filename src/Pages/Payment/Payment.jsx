@@ -33,7 +33,11 @@ const PaymentForm = ({ contest, clientSecret }) => {
       Swal.fire({
         icon: 'success',
         title: 'Payment Successful!',
+<<<<<<< HEAD
         text: 'You are now registered for thi contest',
+=======
+        text: 'You are now registered for this contest',
+>>>>>>> 5b1652f (Update project files with Stripe integration and fixes)
         confirmButtonColor: '#14b8a6',
       });
       navigate(`/contests/${contest._id}`);

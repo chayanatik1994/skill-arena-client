@@ -62,17 +62,29 @@ export const router = createBrowserRouter([
       { index: true, element: <MyProfile /> },
       { path: 'my-profile', element: <MyProfile /> },
 
+<<<<<<< HEAD
       // User
       { path: 'my-participated-contests', element: <PrivateRoute role="user"><MyParticipatedContests /></PrivateRoute> },
       { path: 'my-winning-contests', element: <PrivateRoute role="user"><MyWinningContests /></PrivateRoute> },
 
       // Creator
+=======
+      // User routes
+      { path: 'my-participated-contests', element: <PrivateRoute role="user"><MyParticipatedContests /></PrivateRoute> },
+      { path: 'my-winning-contests', element: <PrivateRoute role="user"><MyWinningContests /></PrivateRoute> },
+
+      // Creator routes
+>>>>>>> 5b1652f (Update project files with Stripe integration and fixes)
       { path: 'add-contest', element: <PrivateRoute role="creator"><AddContest /></PrivateRoute> },
       { path: 'my-created-contests', element: <PrivateRoute role="creator"><MyCreatedContests /></PrivateRoute> },
       { path: 'edit-contest/:id', element: <PrivateRoute role="creator"><EditContest /></PrivateRoute> },
       { path: 'submissions/:contestId', element: <PrivateRoute role="creator"><Submissions /></PrivateRoute> },
 
+<<<<<<< HEAD
       // Admin
+=======
+      // Admin routes
+>>>>>>> 5b1652f (Update project files with Stripe integration and fixes)
       { path: 'manage-users', element: <PrivateRoute role="admin"><ManageUsers /></PrivateRoute> },
       { path: 'manage-contests', element: <PrivateRoute role="admin"><ManageContests /></PrivateRoute> },
     ],
