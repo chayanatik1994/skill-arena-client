@@ -11,14 +11,12 @@ const WinnerAdvertisement = () => {
   const { data: winners = [], isLoading } = useQuery({
     queryKey: ["winners"],
     queryFn: async () => {
-      const res = await axios.get("http://localhost:3000/winners");
+      const res = await axios.get("https://skill-arena-seven.vercel.app/winners");
       return res.data || [];
     },
-<<<<<<< HEAD
+
     refetchInterval: 30000, 
-=======
-    refetchInterval: 30000, // Refetch every 30 seconds to get latest winners
->>>>>>> 5b1652f (Update project files with Stripe integration and fixes)
+
   });
 
   if (isLoading) {

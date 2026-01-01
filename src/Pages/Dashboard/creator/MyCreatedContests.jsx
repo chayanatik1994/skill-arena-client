@@ -33,11 +33,8 @@ const MyCreatedContests = () => {
     },
     onError: (err) => {
       console.error(err);
-<<<<<<< HEAD
       Swal.fire('Error', 'Failed the delete contest', 'error');
-=======
-      Swal.fire('Error', 'Failed to delete contest', 'error');
->>>>>>> 5b1652f (Update project files with Stripe integration and fixes)
+
     },
   });
 

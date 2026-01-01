@@ -19,9 +19,8 @@ const Leaderboard = () => {
       const users = usersRes.data;
       const contests = contestsRes.data;
 
-      // Calculate wins for each user (excluding admin users)
       const leaderboardData = users
-        .filter(user => user.role !== 'admin') // Filter out admin users
+        .filter(user => user.role !== 'admin') 
         .map(user => {
           const wins = contests.filter(c => c.winnerId === user._id).length;
           return {
@@ -30,8 +29,8 @@ const Leaderboard = () => {
             totalContests: contests.filter(c => c.participants?.includes(user._id)).length
           };
         })
-        .filter(user => user.wins > 0) // Only show users with wins
-        .sort((a, b) => b.wins - a.wins); // Sort by wins descending
+        .filter(user => user.wins > 0) 
+        .sort((a, b) => b.wins - a.wins); 
 
       return leaderboardData;
     },

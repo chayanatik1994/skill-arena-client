@@ -16,12 +16,6 @@ const MyProfile = () => {
   const [photoURL, setPhotoURL] = useState(user?.photoURL || '');
   const [loading, setLoading] = useState(false);
   const [winStats, setWinStats] = useState({ participated: 0, won: 0 });
-
-<<<<<<< HEAD
-  // Fetch win statisti
-=======
-  // Fetch win statistics
->>>>>>> 5b1652f (Update project files with Stripe integration and fixes)
   useEffect(() => {
     const fetchStats = async () => {
     if (!user?._id) return;

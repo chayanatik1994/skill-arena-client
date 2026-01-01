@@ -2,11 +2,6 @@
 
 A modern, full-stack web application for creating, discovering, participating in, and managing creative contests.
 
-## 🌐 Live Site
-
-**Client:** [Add your deployed client URL here]  
-**Server:** [Add your deployed server URL here]
-
 ## ✨ Features
 
 - **🔐 Secure Authentication**: Firebase Authentication with Email/Password and Google Sign-in, JWT token-based API security
@@ -78,8 +73,6 @@ A modern, full-stack web application for creating, discovering, participating in
    cd ../skill-arena-client
    npm install
    ```
-<<<<<<< HEAD
-=======
 
 4. **Environment Variables**
 
@@ -211,4 +204,4 @@ Built with ❤️ using MERN stack
 
 ---
 
-**Note:** Remember to add your actual deployment URLs and update environment variables before deploying!
+

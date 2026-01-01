@@ -110,15 +110,14 @@ const Login = () => {
         <p className="mt-4 text-center text-sm">
           Don’t have an account? <Link to="/auth/register" className="text-teal-700 hover:text-teal-800">Register</Link>
         </p>
-<<<<<<< HEAD
-=======
+
         <Link
         to="/"
        className="mt-4 inline-block text-sm text-teal-700 hover:underline items-center"
          >
          Back Home
        </Link>
->>>>>>> 5b1652f (Update project files with Stripe integration and fixes)
+
       </div>
        
     </div>

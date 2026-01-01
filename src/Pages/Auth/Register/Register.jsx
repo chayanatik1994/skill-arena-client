@@ -10,29 +10,15 @@ const Register = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
-<<<<<<< HEAD
-  const navigate = useNavigate();
-
-  const handleRegistration = async (data) => {
-    setLoading(true);
-    try {
-      // Ensure name is not empty - use email as fallback if name is empty
-      const trimmedName = data.name?.trim() || '';
-      const name = trimmedName || data.email.trim().split('@')[0] || 'User';
-      const email = data.email.trim();
-      const password = data.password;
-
-      // Default avatar
-
   const [showAdmin, setShowAdmin] = useState(false);
   const navigate = useNavigate();
 
   // Check if admin exists
   useEffect(() => {
-    axios.get('http://localhost:3000/users')
+    axios.get('/users')
       .then(res => {
         const existingAdmin = res.data.find(u => u.role === 'admin');
-        setShowAdmin(!existingAdmin); 
+        setShowAdmin(!existingAdmin);
       })
       .catch(err => console.error('Error fetching users:', err));
   }, []);
@@ -44,7 +30,7 @@ const Register = () => {
       const name = trimmedName || data.email.trim().split('@')[0] || 'User';
       const email = data.email.trim();
       const password = data.password;
->>>>>>> 5b1652f (Update project files with Stripe integration and fixes)
+
       const defaultAvatar = "https://i.ibb.co/hRNkzFqh/smiling-redhaired-boy-illustrati.png";
       let photoURL = defaultAvatar;
 
@@ -56,26 +42,9 @@ const Register = () => {
           formData.append('image', profileFile);
           const imageAPI_URL = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_image_host_key}`;
           const response = await axios.post(imageAPI_URL, formData);
-<<<<<<< HEAD
-          
-          // Debug: log the response to see the structure
-          console.log('Image upload response:', response.data);
-          
-          // Use url (more reliable) with fallback to display_url
-          const uploadedUrl = response.data?.data?.url || response.data?.data?.display_url;
-          if (uploadedUrl && uploadedUrl.trim() !== '') {
-            photoURL = uploadedUrl;
-            console.log('Image uploaded successfully:', photoURL);
-          } else {
-            console.warn('Image upload response missing URL, using default avatar');
-          }
-        } catch (imageError) {
-          console.error('Image upload failed, using default avatar:', imageError);
-=======
           photoURL = response.data?.data?.url || response.data?.data?.display_url || defaultAvatar;
         } catch (imageError) {
           console.warn('Image upload failed, using default avatar:', imageError);
->>>>>>> 5b1652f (Update project files with Stripe integration and fixes)
           Swal.fire({
             icon: 'warning',
             title: 'Image Upload Failed',
@@ -83,34 +52,6 @@ const Register = () => {
             timer: 3000,
             showConfirmButton: false
           });
-<<<<<<< HEAD
-          // Keep default avatar if upload fails
-        }
-      }
-
-      // Ensure photoURL is never empty or undefined
-      if (!photoURL || photoURL.trim() === '') {
-        photoURL = defaultAvatar;
-      }
-
-      // Firebase registration
-      const userCredential = await registerUser(email, password);
-      await updateUserProfile({ displayName: name, photoURL });
-
-      // Save user to backend with proper name and photoURL
-      const selectedRole = data.role || 'user';
-      const userData = {
-        email: userCredential.user.email,
-        name: name, // Ensure name is never empty
-        photoURL: photoURL, // Use uploaded image or default
-        role: selectedRole,
-        bio: ''
-      };
-      
-      console.log('Saving user to backend:', userData);
-      await axios.post('http://localhost:3000/users', userData);
-
-=======
         }
       }
 
@@ -123,17 +64,12 @@ const Register = () => {
       const userData = { email: userCredential.user.email, name, photoURL, role: selectedRole, bio: '' };
       await axios.post('http://localhost:3000/users', userData);
 
->>>>>>> 5b1652f (Update project files with Stripe integration and fixes)
       Swal.fire({
         icon: 'success',
         title: 'Registration Successful!',
         html: `
           <p>Welcome, <strong>${name}</strong>!</p>
-<<<<<<< HEAD
-          <p>Registered as: <strong>${selectedRole === 'creator' ? 'Contest Creator' : 'User'}</strong></p>
-=======
           <p>Registered as: <strong>${selectedRole}</strong></p>
->>>>>>> 5b1652f (Update project files with Stripe integration and fixes)
           <img src="${photoURL}" alt="Avatar" class="rounded-full mt-2" style="width:80px;height:80px;">
         `,
         showConfirmButton: true
@@ -231,24 +167,6 @@ const Register = () => {
                     <p className="text-xs text-gray-600 mt-1">Participate in contests, submit tasks, and win prizes</p>
                   </div>
                 </label>
-<<<<<<< HEAD
-                <label className="flex items-start gap-3 p-3 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-teal-400 hover:bg-teal-50 transition-all">
-                  <input
-                    type="radio"
-                    {...register("role", { required: "Please select a role" })}
-                    value="creator"
-                    className="radio radio-info radio-sm mt-1"
-                  />
-                  <div className="flex-1">
-                    <div className="font-semibold text-gray-900">Contest Creator</div>
-                    <p className="text-xs text-gray-600 mt-1">Create contests, manage submissions, and declare winners</p>
-                  </div>
-                </label>
-              </div>
-              {errors.role && <p className="text-xs text-red-600 mt-1">{errors.role.message}</p>}
-            </div>
-
-=======
 
                 <label className="flex items-start gap-3 p-3 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-teal-400 hover:bg-teal-50 transition-all">
                   <input
@@ -282,7 +200,6 @@ const Register = () => {
               {errors.role && <p className="text-xs text-red-600 mt-1">{errors.role.message}</p>}
             </div>
 
->>>>>>> 5b1652f (Update project files with Stripe integration and fixes)
             {/* Submit */}
             <button
               type="submit"
@@ -303,3 +220,4 @@ const Register = () => {
 };
 
 export default Register;
+

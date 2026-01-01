@@ -52,11 +52,8 @@ const Submissions = () => {
       queryClient.invalidateQueries(['contests']);
       queryClient.invalidateQueries(['leaderboard']);
       queryClient.invalidateQueries(['winners']);
-<<<<<<< HEAD
-      Swal.fire('Winner Declared!', 'The winners has been successfully declared!', 'success');
-=======
       Swal.fire('Winner Declared!', 'The winner has been successfully declared!', 'success');
->>>>>>> 5b1652f (Update project files with Stripe integration and fixes)
+
     },
     onError: (err) => {
       console.error(err);

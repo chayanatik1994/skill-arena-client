@@ -1,13 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
-<<<<<<< HEAD
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
 
-=======
-import Swal from 'sweetalert2';
-import useAxiosSecure from '../../../hooks/useAxiosSecure';
->>>>>>> 5b1652f (Update project files with Stripe integration and fixes)
 const AdminSelectWinner = ({ contest }) => {
   const axiosSecure = useAxiosSecure();
   const queryClient = useQueryClient();
@@ -22,25 +17,13 @@ const AdminSelectWinner = ({ contest }) => {
     },
   });
 
-<<<<<<< HEAD
-  // Get participants for this contest (filter out admin users)
-=======
-  // Get participants 
->>>>>>> 5b1652f (Update project files with Stripe integration and fixes)
-  const participants = React.useMemo(() => {
+  // Get participants excluding admins
+  const participants = useMemo(() => {
     if (!contest?.participants || !allUsers.length) return [];
-    
+
     return contest.participants
-      .map(participantId => {
-        const user = allUsers.find(u => u._id === participantId);
-        return user;
-      })
-<<<<<<< HEAD
-      .filter(user => user && user.role !== 'admin') // Filter out admin users
-=======
-      .filter(user => user && user.role !== 'admin') 
->>>>>>> 5b1652f (Update project files with Stripe integration and fixes)
-      .filter(Boolean);
+      .map(id => allUsers.find(u => u._id === id))
+      .filter(user => user && user.role !== 'admin');
   }, [contest?.participants, allUsers]);
 
   const handleSelectWinner = async () => {
@@ -69,7 +52,6 @@ const AdminSelectWinner = ({ contest }) => {
             status: 'completed'
           });
 
-          // Refresh all relevant queries
           queryClient.invalidateQueries(['leaderboard']);
           queryClient.invalidateQueries(['contests']);
           queryClient.invalidateQueries(['winners']);
@@ -80,7 +62,7 @@ const AdminSelectWinner = ({ contest }) => {
             title: 'Success!',
             text: 'Winner selected and leaderboard updated!'
           });
-          setSelectedUserId(''); // Reset selection
+          setSelectedUserId('');
         } catch (error) {
           console.error(error);
           Swal.fire({
@@ -108,7 +90,7 @@ const AdminSelectWinner = ({ contest }) => {
             onChange={(e) => setSelectedUserId(e.target.value)}
           >
             <option value="">Select Winner</option>
-            {participants.map((p) => (
+            {participants.map(p => (
               <option key={p._id} value={p._id}>
                 {p.name || p.displayName || p.email || 'Anonymous'}
               </option>
@@ -132,8 +114,4 @@ const AdminSelectWinner = ({ contest }) => {
   );
 };
 
-<<<<<<< HEAD
 export default AdminSelectWinner;
-=======
-export default AdminSelectWinner;
->>>>>>> 5b1652f (Update project files with Stripe integration and fixes)

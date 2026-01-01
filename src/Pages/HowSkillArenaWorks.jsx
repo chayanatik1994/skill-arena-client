@@ -62,11 +62,7 @@ const HowSkillArenaWorks = () => {
 
         {/* Call-to-action button */}
         <div className="text-center mt-16">
-<<<<<<< HEAD
           <Link to="/auth/register" className="px-8 py-5 bg-teal-400 text-white font-semibold rounded-full shadow-lg hover:bg-teal-500 transition">
-=======
-          <Link to="/auth/register" className="px-8 py-4 bg-teal-400 text-white font-semibold rounded-full shadow-lg hover:bg-teal-500 transition">
->>>>>>> 5b1652f (Update project files with Stripe integration and fixes)
             Join a Contest Now
           </Link>
         </div>

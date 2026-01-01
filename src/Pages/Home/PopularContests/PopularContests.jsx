@@ -12,12 +12,12 @@ const PopularContests = () => {
   const { data: contests = [], isLoading: loading } = useQuery({
     queryKey: ['contests', 'popular'],
     queryFn: async () => {
-      const response = await axios.get("http://localhost:3000/contests");
-      // Filter only approved contests and sort by participants
+      const response = await axios.get("https://skill-arena-seven.vercel.app/contests");
+    
       const approved = response.data
         .filter(c => c.status === 'approved')
         .sort((a, b) => (b.participants?.length || 0) - (a.participants?.length || 0));
-      return approved.slice(0, 5); // Show top 6
+      return approved.slice(0, 5); 
     },
   });
 
@@ -47,11 +47,7 @@ const PopularContests = () => {
               <h3 className="card-title">{contest.name}</h3>
               <p className="text-gray-700 line-clamp-3">{contest.description}</p>
               <p className="text-sm text-gray-500">{contest.participants?.length || 0} Participants</p>
-<<<<<<< HEAD
               <div className="card-actions mt-3 justify-end">
-=======
-              <div className="card-actions mt-2 justify-end">
->>>>>>> 5b1652f (Update project files with Stripe integration and fixes)
                 <button
                   className="btn btn-secondary btn-sm"
                   onClick={() => handleDetailsClick(contest._id)}
