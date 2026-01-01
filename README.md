@@ -4,8 +4,8 @@ A modern, full-stack web application for creating, discovering, participating in
 
 ## 🌐 Live Site
 
-**Client:** [Add your deployed client URL here]  
-**Server:** [Add your deployed server URL here]
+**Client:** https://your-client-netlify-url.netlify.app  
+**Server:** https://magical-brigadeiros-dfe948.netlify.app
 
 ## ✨ Features
 
@@ -208,4 +208,4 @@ Built with ❤️ using MERN stack
 
 ---
 
-**Note:** Remember to add your actual deployment URLs and update environment variables before deploying!
+
