@@ -82,7 +82,7 @@ Stripe account
 
 Installation
 # Clone repository
-git clone [your-repo-url]
+git clone [https://github.com/chayanatik1994/skill-arena-client.git]
 cd skill-arena
 
 # Install server dependencies
